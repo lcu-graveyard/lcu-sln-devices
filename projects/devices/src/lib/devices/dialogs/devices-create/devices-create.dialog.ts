@@ -1,8 +1,9 @@
-import { ForgeJSONSchemaService, DevicesConfigContext } from '@lcu/core';
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { BaseModeledResponse, Status, Loading, isResultSuccess, BaseResponse, SingletonService} from '@lcu/common';
-import { Observable } from 'rxjs';
+import { Loading, BaseModeledResponse } from '@lcu/core';
+import { ForgeJSONSchemaService, DevicesConfigContext } from '@lcu/daf-common';
+import { SingletonService } from '@lcu/enterprises';
+import { Status } from '@lcu/common';
 
 @Component({
 	selector: 'devices-create-dialog',

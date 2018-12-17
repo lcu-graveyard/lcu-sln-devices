@@ -1,8 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { BaseModeledResponse, Status, isResultSuccess, isStatusSuccess, Loading, Guid } from '@lcu/common';
 import { Observable } from 'rxjs';
-import { DeviceTypeConfig, JSONSchemaMap, ForgeJSONSchemaService, ForgeJSONSchema } from '@lcu/core';
+import { DeviceTypeConfig, JSONSchemaMap, ForgeJSONSchema } from '@lcu/apps';
+import { Loading, BaseModeledResponse, isResultSuccess } from '@lcu/core';
+import { ForgeJSONSchemaService } from '@lcu/daf-common';
+import { Status, isStatusSuccess, Guid } from '@lcu/common';
 
 @Component({
 	selector: 'devices-settings-dialog',
