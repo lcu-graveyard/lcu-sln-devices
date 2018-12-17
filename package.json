@@ -37,6 +37,7 @@
 		"@lcu/hosting": "0.0.10",
 		"@lcu/solutions": "0.0.10",
 		"@lowcodeunit-devkit/ng-lcu": "0.0.106",
+		"@lowcodeunit/json-schema-editor": "0.0.5",
 		"core-js": "^2.5.4",
 		"dot-object": "^1.7.1",
 		"rxjs": "~6.3.3",

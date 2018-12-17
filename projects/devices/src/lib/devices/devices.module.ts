@@ -4,6 +4,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FathymSharedModule } from '@lcu/hosting';
 import { BaseSolutionModule } from '@lcu/solutions';
 import { GenericDomainModule } from '@lcu/daf-ui';
+import { JsonSchemaEditorModule } from '@lowcodeunit/json-schema-editor';
 import { ForgeDevicesSolutionManage } from './manage/devices-manage.component';
 import { ForgeDevicesSolutionDocumentation } from './documentation/devices-documentation.component';
 import { ForgeDevicesSolutionHeading } from './heading/devices-heading.component';
@@ -50,6 +51,7 @@ var comps = [
 		FathymSharedModule,
 		FlexLayoutModule,
 		GenericDomainModule,
+		JsonSchemaEditorModule,
 		MatAutocompleteModule,
 		MatButtonModule,
 		MatCheckboxModule,

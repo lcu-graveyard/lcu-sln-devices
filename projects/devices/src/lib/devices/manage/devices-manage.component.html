@@ -1,1 +1,108 @@
-Devices Manage...
+<mat-toolbar>
+	<ng-container *ngIf="!CurrentDeviceType">
+		<h3>Manage Device Taxonomy</h3>
+	</ng-container>
+
+	<ng-container *ngIf="CurrentDeviceType && !CurrentDevice">
+		<h3>
+			<a mat-icon-button color="warn" (click)="ManageDeviceType(null)">
+				<mat-icon>cancel</mat-icon>
+			</a>
+
+			Managing {{CurrentDeviceType}}
+		</h3>
+
+		<span class="filler"></span>
+
+		<a mat-icon-button (click)="ManageDataTypeSettings(CurrentDeviceType)">
+			<mat-icon>settings</mat-icon>
+		</a>
+	</ng-container>
+
+	<ng-container *ngIf="CurrentDeviceType && CurrentDevice">
+		<h3>
+			<a mat-icon-button color="warn" (click)="ManageDevice(null)">
+				<mat-icon>cancel</mat-icon>
+			</a>
+
+			Managing {{CurrentDevice}}
+		</h3>
+
+		<span class="filler"></span>
+
+		<!-- <a mat-icon-button (click)="ManageDataTypeSettings(CurrentDeviceType)">
+			<mat-icon>settings</mat-icon>
+		</a> -->
+	</ng-container>
+</mat-toolbar>
+
+<div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="2rem" *ngIf="!Loading.Value && DevicesConfig">
+	<div fxFlex="20%">
+		<mat-nav-list>
+			<ng-container *ngIf="!CurrentDeviceType">
+				<a mat-list-item *ngFor="let type of DevicesConfig.DeviceTypes" (click)="ManageDeviceType(type)">
+					{{type}}
+				</a>
+
+				<a mat-list-item (click)="CreateDeviceType()">
+					Create New Device Type
+
+					<span class="filler"></span>
+
+					<mat-icon>add</mat-icon>
+				</a>
+			</ng-container>
+
+			<ng-container *ngIf="CurrentDeviceType && !CurrentDevice">
+				<mat-list-item *ngFor="let device of Devices">
+					<a matLine (click)="ManageDevice(device)">{{LoadDeviceID(device)}}</a>
+				</mat-list-item>
+
+				<hr />
+
+				<a mat-list-item (click)="CreateSecureDevice()">
+					Create Secure Device
+
+					<span class="filler"></span>
+
+					<mat-icon>add</mat-icon>
+				</a>
+
+				<a mat-list-item (click)="ManageIngest()">
+					Manage Secure Ingest
+
+					<span class="filler"></span>
+
+					<mat-icon>add</mat-icon>
+				</a>
+			</ng-container>
+		</mat-nav-list>
+	</div>
+
+	<div fxFlex="80%">
+		<div class="push-down">
+			<h2 *ngIf="!CurrentDeviceType">
+				<span *ngIf="!DevicesConfig.DeviceTypes || DevicesConfig.DeviceTypes.length == 0">
+					Create a new device to get started
+				</span>
+
+				<span *ngIf="DevicesConfig.DeviceTypes && DevicesConfig.DeviceTypes.length > 0">
+					Select an existing device or create a new one to continue
+				</span>
+			</h2>
+
+			<h2 *ngIf="CurrentDeviceType && !CurrentDevice">
+				<span *ngIf="!Devices || Devices.length == 0">You currently have no active devices.  You can create a global secure endpoint for all your devices or jump right into creating secure ative connections for each device in the field.</span>
+
+				<span *ngIf="Devices && Devices.length > 0">Select an existing device to manage or you can create a global secure endpoint for all your devices or jump right into creating secure ative connections for each device in the field.</span>
+			</h2>
+
+			<div class="push-out" *ngIf="CurrentDeviceType">
+				<forge-generic-domain-list [items]="DeviceData" [columns-to-display]="DeviceTypeConfig.QAQCColumnsToDisplay">
+				</forge-generic-domain-list>
+			</div>
+		</div>
+	</div>
+</div>
+
+<mat-spinner class="mat-centered" *ngIf="Loading.Value"></mat-spinner>
