@@ -1,0 +1,47 @@
+<form #form="ngForm">
+	<h2 mat-dialog-title>Managing Device Type Settings for '{{Config.DeviceType}}'</h2>
+
+	<div mat-dialog-content *ngIf="!Loading.Value && SchemaMap">
+		<mat-form-field class="mat-full-width">
+			<input matInput placeholder="Device Type Name" [(ngModel)]="Config.DeviceType" name="deviceType" required [disabled]="true" />
+		</mat-form-field>
+
+		<div class="push-out">
+			<json-schema-editor [(schema)]="SchemaMap.Schema" [show-validations]="false" [hide-note]="true"
+								[parent-title]="Config.DeviceType" [hide-schema-title]="true">
+			</json-schema-editor>
+		</div>
+
+		<mat-form-field class="push-up mat-full-width">
+			<mat-select placeholder="Create Columns to Display" [(ngModel)]="Config.QAQCColumnsToDisplay" name="qaColsToDisplay" multiple>
+				<mat-option *ngFor="let prop of PivotProperties()" value="{{prop.title}}">{{prop.title}}</mat-option>
+
+				<mat-option value="Actions">Actions</mat-option>
+			</mat-select>
+		</mat-form-field>
+
+		<mat-form-field class="mat-full-width">
+			<mat-select placeholder="ID Columns" [(ngModel)]="Config.DeviceIDPropertyKey" name="qaIdColumn" required>
+				<mat-option *ngFor="let prop of PivotProperties()" value="{{prop.title}}">{{prop.title}}</mat-option>
+			</mat-select>
+		</mat-form-field>
+
+		<mat-form-field class="mat-full-width">
+			<input matInput type="number" placeholder="Default Refresh Rate (seconds)" [(ngModel)]="Config.DefaultRefreshRate" name="refreshRate" required />
+		</mat-form-field>
+	</div>
+
+	<div mat-dialog-actions>
+		<ng-container *ngIf="!Loading.Value && SchemaMap">
+			<button mat-raised-button type="submit" color="primary" (click)="Save()" [disabled]="!form.form.valid">
+				Save Control
+			</button>
+
+			<button mat-button color="warn" (click)="Cancel()">
+				Cancel
+			</button>
+		</ng-container>
+		
+		<mat-spinner *ngIf="Loading.Value"></mat-spinner>
+	</div>
+</form>

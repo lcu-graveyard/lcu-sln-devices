@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Create New Device</h2>
+
+<form #createForm="ngForm" (ngSubmit)="HandleCreate()">
+	<div mat-dialog-content>
+		<mat-form-field class="mat-full-width">
+			<input matInput placeholder="Device Lookup" [(ngModel)]="DeviceLookup" name="deviceLookup" required />
+		</mat-form-field>
+		
+		<div *ngIf="Error">{{Error}}</div>
+
+		<mat-spinner *ngIf="Loading.Value"></mat-spinner>
+	</div>
+
+	<div mat-dialog-actions>
+		<button mat-raised-button type="submit" color="primary" class="mat-button-lg" [disabled]="!createForm.form.valid" *ngIf="!Loading.Value">
+			Create Device
+		</button>
+
+		<button mat-button color="warn" (click)="Cancel()">
+			Cancel
+		</button>
+	</div>
+</form>
