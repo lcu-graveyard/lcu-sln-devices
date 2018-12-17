@@ -1,8 +1,6 @@
-import { GenericDomainModule } from '@lcu/daf-ui';
 import { Component, Injector } from '@angular/core';
 import { ISolutionControl, ForgeGenericSolution } from '@lcu/solutions';
-import { isResultSuccess } from '@lcu/common';
-import { Loading, BaseModeledResponse } from '@lcu/core';
+import { Loading, BaseModeledResponse, isResultSuccess } from '@lcu/core';
 import { DataFlowContext, DeviceTypeContext, DevicesConfigContext, PageUIService, DatabaseService } from '@lcu/daf-common';
 import { SingletonService } from '@lcu/enterprises';
 import { DevicesConfig, DeviceTypeConfig, DataSetQuery } from '@lcu/apps';
