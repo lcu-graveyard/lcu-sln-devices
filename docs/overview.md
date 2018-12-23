@@ -1,4 +1,4 @@
-# Distributed Assets
+# Distributed Devices
 
 Distributed Assets are at the core of data movement and mapping for display in Data Applications. Define your
 Enterprise's assets and then map the flow of data between your Enterprise architecture to establish a real time
