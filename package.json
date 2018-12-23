@@ -45,6 +45,7 @@
 		"angular-font-awesome": "^3.1.2",
 		"core-js": "^2.5.4",
 		"dot-object": "^1.7.1",
+		"ngx-markdown": "^7.0.3",
 		"ngx-monaco-editor": "^6.0.0",
 		"rxjs": "~6.3.3",
 		"tslib": "^1.9.0",
