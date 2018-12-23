@@ -5,6 +5,7 @@ import { FathymSharedModule } from '@lcu/hosting';
 import { BaseSolutionModule } from '@lcu/solutions';
 import { GenericDomainModule } from '@lcu/daf-ui';
 import { JsonSchemaEditorModule } from '@lowcodeunit/json-schema-editor';
+import { NgxMarkdownDocsModule } from '@lowcodeunit/ngx-markdown-docs';
 import { ForgeDevicesSolutionManage } from './manage/devices-manage.component';
 import { ForgeDevicesSolutionDocumentation } from './documentation/devices-documentation.component';
 import { ForgeDevicesSolutionHeading } from './heading/devices-heading.component';
@@ -31,7 +32,7 @@ export class ForgeDevicesSolutionDisplayModule extends BaseSolutionModule {
 		return ForgeDevicesSolutionMarketplace;
 	}
 
-	public Overview() { 
+	public Overview() {
 		return ForgeDevicesSolutionOverview;
 	}
 }
@@ -49,6 +50,7 @@ var comps = [
 @NgModule({
 	imports: [
 		FathymSharedModule,
+		NgxMarkdownDocsModule,
 		FlexLayoutModule,
 		GenericDomainModule,
 		JsonSchemaEditorModule,
@@ -75,5 +77,5 @@ var comps = [
 		...comps,
 	]
 })
-export class ForgeDevicesSolutionModule { 
+export class ForgeDevicesSolutionModule {
 }

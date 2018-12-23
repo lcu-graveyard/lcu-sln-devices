@@ -41,6 +41,7 @@
 		"@lcu/solutions": "0.0.19",
 		"@lowcodeunit-devkit/ng-lcu": "0.0.107",
 		"@lowcodeunit/json-schema-editor": "0.0.5",
+		"@lowcodeunit/ngx-markdown-docs": "0.0.12",
 		"angular-font-awesome": "^3.1.2",
 		"core-js": "^2.5.4",
 		"dot-object": "^1.7.1",

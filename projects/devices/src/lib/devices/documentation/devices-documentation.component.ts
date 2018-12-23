@@ -11,10 +11,13 @@ export class ForgeDevicesSolutionDocumentation extends ForgeGenericSolution
 	//  Fields
 
 	//  Properties
+	public DocsRoot: string;
 
 	//  Constructors
 	constructor(protected injector: Injector) {
 		super(injector);
+
+		this.DocsRoot = 'https://raw.githubusercontent.com/lowcodeunit/lcu-sln-devices/master/docs/';
 	}
 
 	//	Life Cycle
